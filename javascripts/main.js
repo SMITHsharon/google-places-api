@@ -7,7 +7,6 @@ let menuChoice;
 
 // writes the result of the call to the DOM
 const writeToDOM = (ajaxObject) => {
-
 	domString = "";
 	let placesArray = ajaxObject.results;
 
@@ -36,7 +35,6 @@ const writeToDOM = (ajaxObject) => {
 			domString += `${thisPlace.name}</div>`;
 		})
 	} else {
-		domString += 
 			domString += `<div class="thisPlace">There were no places found matching your request.</div>`;
 	}
 
