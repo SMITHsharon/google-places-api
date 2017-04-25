@@ -1,0 +1,17 @@
+
+body {
+	background-color: #BFC6D6;
+	font-family: 'Pontano Sans', sans-serif;
+	margin-left: 3%;
+}
+
+
+.resultHeader {
+	font-size: 2em;
+	font-weight: 900;
+	margin-top: 2%;
+}
+
+.thisPlace {
+	font-size: 1.2em;
+}
