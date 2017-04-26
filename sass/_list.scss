@@ -1,0 +1,15 @@
+@import "color";
+
+
+#outputHere {
+	background-color: $maroon;
+
+	a {
+		color: $yellow;
+	}
+
+	div {
+		padding: 5px;
+	}
+}
+

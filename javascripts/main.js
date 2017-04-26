@@ -86,7 +86,7 @@ const loadPlaces = (dropdownType) => {
 
 		return new Promise ((resolve, reject) => {
 			$.ajax(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=36.174465,-86.767960&radius=50000&type=${dropdownType}&key=${apiKey}`)
-		.done((data) => { resolve(data.results)
+		.done((data) => { resolve(data.results);
 			writeToDOM(data.results);
 		})	
 			
