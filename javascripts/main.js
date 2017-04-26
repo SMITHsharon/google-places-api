@@ -6,9 +6,9 @@ const apiKey = "";
 let menuChoice;
 
 // writes the result of the call to the DOM
-const writeToDOM = (ajaxObject) => {
+const writeToDOM = (placesArray) => {
 	domString = "";
-	let placesArray = ajaxObject.results;
+	// let placesArray = ajaxObject.results;
 
 	$("#outputHere").empty(); // clear the DOM of prior output
 
@@ -30,22 +30,51 @@ const writeToDOM = (ajaxObject) => {
 	domString += `</div>`;
 
 	if (placesArray.length !== 0) {
-		placesArray.forEach(function(thisPlace) {
-			domString += `<div class="thisPlace">`;
-			domString += `${thisPlace.name}</div>`;
-		})
+		for (let i=0; i<placesArray.length; i++) {
+			domString += `<a href="#"><div id="${placesArray[i].place_id}" class="thisPlace">`;
+			domString += `${placesArray[i].name}</div></a>`;
+		}
+		// placesArray.forEach(function(thisPlace) {
+		// 	domString += `<div class="thisPlace">`;
+		// 	domString += `${thisPlace.name}</div>`;
+		// })
 	} else {
-			domString += `<div class="thisPlace">There were no places found matching your request.</div>`;
+			domString += `<<div class="thisPlace">There were no places found matching your request.</div>`;
 	}
 
 	$("#outputHere").append(domString);
 };
 
 
+const writeAddressToDOM = (address) => {
+	let outputString = `<div>${address}</div>`;
+	$("#addresses").append(outputString);
+};
+
+
+$("body").on("click", ".thisPlace", (e) => {
+	let place_id = e.target.id;
+	loadDetail(place_id).then((result) => {
+		console.log(result.formatted_address);
+		writeAddressToDOM(result.formatted_address);
+	});
+});
+
+const loadDetail = (place_id) => {
+	return new Promise ((resolve, reject) => {
+		$.ajax(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${place_id}&key=${apiKey}`)
+		.done((data) => resolve(data.result))
+		.fail((error) => reject(error));
+	});
+};
+
+
 // event handler on menu click
 $("body").on("click", "li", (e) => {
 	menuChoice = e.target.innerHTML;
-	loadPlaces(e.target.innerHTML).then((data) => {
+	loadPlaces(menuChoice).then((data) => {
+		console.log(data);
+		let myData = data;
 	}).catch((error) => {
 		console.log(error);
 	});
@@ -56,9 +85,9 @@ $("body").on("click", "li", (e) => {
 const loadPlaces = (dropdownType) => {
 
 		return new Promise ((resolve, reject) => {
-			$.ajax(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=36.174465,-86.767960&radius=50000&type=${dropdownType}&keyword=cruise&key=${apiKey}`)
-		.done((data) => { resolve(data)
-			writeToDOM(data);
+			$.ajax(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=36.174465,-86.767960&radius=50000&type=${dropdownType}&key=${apiKey}`)
+		.done((data) => { resolve(data.results)
+			writeToDOM(data.results);
 		})	
 			
 		.fail((error) => reject(error));
