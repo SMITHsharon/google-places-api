@@ -4,7 +4,7 @@
 
 This exercise was a class coding dive into the API (Application Program Interface) and SASS (Syntactically Awesome Style Sheets) universe. 
 
-#### Google Place API Demo after search execution 
+#### Google Places API Demo after search execution 
 ![Google Places API Demo after search execution](https://raw.githubusercontent.com/SMITHsharon/google-places-api/screens/screens/Google%20Places%20API%20Demo.png)
 
 
