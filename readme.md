@@ -2,10 +2,10 @@
 
 ### Project Description 
 
-This exercise was a class coding dive into the API (Application Program Interface) and `SASS` (Syntactically Awesome Style Sheets) universe. 
+This exercise was a class coding dive into the API (Application Program Interface) and SASS (Syntactically Awesome Style Sheets) universe. 
 
 #### Google Place API Demo after search execution 
-![Google Places API Demo after search execution]()
+![Google Places API Demo after search execution](https://raw.githubusercontent.com/SMITHsharon/google-places-api/screens/screens/Google%20Places%20API%20Demo.png)
 
 
 ### Project Specs
@@ -16,13 +16,13 @@ This exercise was a class coding dive into the API (Application Program Interfac
 - Used `Bootstrap` for the code to write a dropdown menu
 - Wrote the code to obtain location information for "near by" Liquor Stores, Mosques, Night Clubs, Cemeteries, and Fire Stations, and processed the returned `JSON` files
 
-#### `SASS`
+#### SASS
 - Added the `SASS` dependencies to the `package.json` file 
 - Added `SASS` statements to `Gruntfile.js`
 - Coded simple `SASS` stylings for the Google Places API application
 
 #### Basic Project File Structure
-![Basic Project File Structure]()
+![Basic Project File Structure](https://raw.githubusercontent.com/SMITHsharon/google-places-api/screens/screens/Basic%20Project%20File%20Structure.png)
 
 
 ### Technologies Used
